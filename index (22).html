@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Plot Twisted: Cinema Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto:wght@400;700;900&family=VT323&family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <div id="startScreen" class="screen active">
+            <div class="screen-content">
+                <h1 class="logo">Plot Twisted</h1>
+                <p id="menuTagline" class="menu-tagline">Where movie plots go to get roasted</p>
+                <div class="main-buttons">
+                    <button class="btn" id="startGameBtn">Start Game</button>
+                </div>
+                 <div class="sub-buttons">
+                    <button class="btn" id="dailyChallengeBtn">Daily Challenge</button>
+                    <button class="btn" id="moreModesBtn">More Modes</button>
+                    <button class="btn" id="settingsBtn">Settings</button>
+                    <button class="btn" id="howToPlayBtn">How to Play</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dailyChallengeScreen" class="screen">
+            <div class="screen-content">
+                 <div class="logo logo-small">Daily Challenge</div>
+                 <p>Coming Soon!</p>
+                 <button class="btn" id="dailyChallengeBackBtn">Back</button>
+            </div>
+        </div>
+
+        <div id="moreModesScreen" class="screen">
+            <div class="screen-content">
+                 <div class="logo logo-small">More Modes</div>
+
+                 <div class="modes-list">
+                    <div class="mode-card">
+                        <button class="btn" id="passPlayBtn">Pass & Play</button>
+                        <p class="mode-desc">Take turns on one device. Each player chooses the other's category. Individual scores. Highest wins!</p>
+                    </div>
+                    <div class="mode-card">
+                        <button class="btn" id="blitzBtn">Blitz 60</button>
+                        <p class="mode-desc">You have 60 seconds to score as much as possible. Strikes still count. Go fast!</p>
+                    </div>
+                 </div>
+
+                 <button class="btn" id="moreModesBackBtn">Back</button>
+            </div>
+        </div>
+
+        <div id="settingsScreen" class="screen">
+            <div class="screen-content">
+                 <div class="logo logo-small">Settings</div>
+                 <div class="settings-grid">
+                    <div class="setting-item"><div class="setting-title">Dark Mode</div><div class="toggle-switch" id="darkModeToggle"></div></div>
+                    <div class="setting-item"><div class="setting-title">Neon Theme</div><div class="toggle-switch" id="neonThemeToggle"></div></div>
+                    <div class="setting-item"><div class="setting-title">Sound FX</div><div class="toggle-switch" id="soundToggle"></div></div>
+                    <div class="setting-item"><div class="setting-title">Game Length</div><div class="game-length-selector" id="gameLengthSelector"><button class="length-btn" data-count="5">5</button><button class="length-btn" data-count="10">10</button><button class="length-btn" data-count="15">15</button></div></div>
+                 </div>
+                 <button class="btn" id="settingsBackBtn">Back</button>
+            </div>
+        </div>
+
+        <div id="howToPlayScreen" class="screen">
+            <div class="screen-content">
+                <div class="logo logo-small">How To Play</div>
+                <div class="how-to-play-scroll-box">
+                    <h3>The Goal</h3>
+                    <p>Read the twisted plot summary and guess the correct movie title by selecting letters on the keyboard.</p>
+
+                    <h3>Game Rules</h3>
+                    <ul>
+                        <li><b>Standard Game:</b> Choose a category and play a round of 5, 10, or 15 questions.</li>
+                        <li><b>Strikes:</b> You have <b>3 strikes</b> for the entire game. Each incorrect letter guess uses one strike. If you run out of strikes, the game is over!</li>
+                        <li><b>Scoring:</b> Each correct answer is worth 100 points.</li>
+                        <li><b>Physical Keyboard:</b> Type letters directly instead of clicking!</li>
+                    </ul>
+
+                    <h3>Pass & Play Mode</h3>
+                    <p>Two players take turns on the same device. Each player chooses a category for their opponent. Share 3 strikes between both players. Highest individual score wins!</p>
+
+                    <h3>Daily Challenge</h3>
+                    <p>Test your skills with a unique set of 10 questions that are the same for everyone each day. You only get one attempt per day! After you finish, you'll get a special shareable summary of your results to compare with friends.</p>
+
+                    <h3>Game Controls</h3>
+                    <ul>
+                        <li><b>Skip:</b> Don't know the answer? Use the "Skip" button to forfeit the question and move to the next one.</li>
+                        <li><b>Settings:</b> Use the Settings menu to toggle between Light, Dark, and Neon themes, adjust the game length, and turn sound on or off.</li>
+                    </ul>
+
+                    <h3>About the Developer</h3>
+                    <p>You can connect with the Developer <a href="https://x.com/Ben_Soup" target="_blank" style="color: var(--primary-color);">Ben Campbell</a> on X @Ben_Soup</p>
+                </div>
+                <button class="btn" id="howToPlayBackBtn">Back</button>
+            </div>
+        </div>
+        
+        <div id="categoryScreen" class="screen">
+            <div class="screen-content">
+                <div class="logo logo-small">Select a Category</div>
+                <div class="category-grid"></div>
+                <div class="scroll-indicator">Scroll for more <i class="ph ph-caret-down"></i></div>
+                <div class="bottom-bar">
+                    <button class="btn" id="playBtn">PLAY</button>
+                    <button class="btn secondary" id="categoryBackToHomeBtn">BACK</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="progress-display" id="gameProgressDisplay"></div>
+                <div class="strikes-display" id="strikesDisplay"></div>
+                <div class="score-display" id="gameScoreDisplay"></div>
+                <div class="finish-btn">
+                    <button class="btn btn-small" id="finishGameBtn">Quit</button>
+                </div>
+            </div>
+            <div id="game-content-area">
+                <div class="screen-box">
+                    <div id="clueText"></div>
+                </div>
+                <div class="action-btn-row">
+                    <button class="btn" id="speakBtn"><span>Speak</span></button>
+                    <button class="btn" id="skipBtn">Skip</button>
+                </div>
+                <div class="word-display"></div>
+            </div>
+            <div id="keyboard-area">
+                <div id="keyboard" class="keyboard"></div>
+                <div id="continue-overlay">
+                    <button class="btn" id="continueBtn">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOverScreen" class="screen">
+             <div class="screen-content">
+                <div class="receipt-container">
+                    <div class="receipt-header" id="gameOverTitle">Your Final Cut</div>
+                    <ul class="receipt-list" id="scoreBreakdown"></ul>
+                    <div class="receipt-list receipt-total">
+                        <span>FINAL SCORE</span>
+                        <span id="finalScore"></span>
+                    </div>
+                </div>
+                <div class="end-buttons-grid">
+                    <button class="btn" id="playAgainBtn">Play Again</button>
+                    <button class="btn" id="chooseNewCategoryBtn">New Category</button>
+                    <button class="btn" id="viewCreditsBtn">Credits</button>
+                    <button class="btn" id="gameOverBackToHomeBtn">Main Menu</button>
+                </div>
+             </div>
+        </div>
+
+        <div id="creditsScreen" class="screen">
+            <div class="screen-content">
+                <div class="logo logo-small">CREDITS</div>
+                <div class="credits-roll">
+                    <div class="credits-content" id="creditsContent"></div>
+                </div>
+                <div class="end-buttons">
+                    <button class="btn secondary" id="creditsBackBtn">Go Back</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirmModal" class="confirm-modal">
+            <div class="confirm-box">
+                <h3>Are you sure you want to quit?</h3>
+                <div class="btn-row">
+                    <button class="btn" id="confirmQuitBtn">YES, QUIT</button>
+                    <button class="btn secondary" id="cancelQuitBtn">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="clues.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
